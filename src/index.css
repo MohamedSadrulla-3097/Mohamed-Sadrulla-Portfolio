@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.body {
+  background: #1F1F1F;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.active-link {
+  color: #c73901;
+  font-weight: 500;
+} 
