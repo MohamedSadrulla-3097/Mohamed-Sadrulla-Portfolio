@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const Skills = () => {
   return (
     <section id='Skills' className='scroll-mt'>
-      <div className='min-h-screen bg-cover bg-center flex items-center w-full overflow-hidden'>
+      <div className='min-h-screen bg-cover bg-center flex items-center w-full'>
         <img className='absolute -z-10 opacity-40 w-full h-screen' src="/resource/texture_bg_right.png" alt="bg_image" />
         <div className='grid grid-rows-[1fr_6fr] w-full h-screen mx-30'>
           <div className='text-white h-30 flex justify-start items-end'>

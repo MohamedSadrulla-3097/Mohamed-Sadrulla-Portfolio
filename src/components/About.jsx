@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const About = () => {
   return (
     <section id="About" className="scroll-mt">
-      <div className='min-h-screen bg-cover bg-center flex items-center w-full overflow-hidden'>
+      <div className='min-h-screen bg-cover bg-center flex items-center w-full'>
         <img className='absolute -z-10 opacity-40 w-full h-screen' src="/resource/texture_bg_left.png" alt="bg_image" />
         <div
           className='grid grid-rows-[auto_6fr] w-full h-screen mx-30'>
