@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
-const ProjectCard = ({ title, img, description, link, delay }) => (
+const ProjectCard = ({ title, img, description, link, delay, extraClass }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -12,7 +12,7 @@ const ProjectCard = ({ title, img, description, link, delay }) => (
   >
     <div className='relative overflow-hidden aspect-video'>
       <img 
-        className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-700' 
+        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${extraClass || ''}`} 
         src={img} 
         alt={title} 
       />
@@ -49,7 +49,8 @@ const Projects = () => {
       title: "3D Car Showcase",
       img: "/resource/Project_2.png",
       description: "High-performance 3D car showcase made using Three.js with interactive controls.",
-      link: "https://carshowcase3d.netlify.app/"
+      link: "https://3d-car-showcase-seven.vercel.app/",
+      extraClass: "brightness-90 group-hover:brightness-100"
     },
     {
       title: "Social Video App",
