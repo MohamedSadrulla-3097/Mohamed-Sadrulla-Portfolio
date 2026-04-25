@@ -1,75 +1,77 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
+
+const ProjectCard = ({ title, img, description, link, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay }}
+    viewport={{ once: true }}
+    className='group flex flex-col bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 overflow-hidden hover:border-[#c084fc]/40 transition-all'
+  >
+    <div className='relative overflow-hidden aspect-video'>
+      <img 
+        className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-700' 
+        src={img} 
+        alt={title} 
+      />
+    </div>
+
+    <div className='p-6 flex flex-col flex-1'>
+      <h3 className='text-white text-lg font-bold mb-2 tracking-tight'>{title}</h3>
+      <p className='text-white/40 text-xs sm:text-sm leading-relaxed mb-6 flex-1 font-light'>
+        {description}
+      </p>
+      <a 
+        className='inline-flex items-center text-[#c084fc] text-[10px] sm:text-xs font-tech uppercase tracking-widest hover:underline gap-2 mt-auto group/link' 
+        href={link} 
+        target='_blank' 
+        rel="noopener noreferrer"
+      >
+        Explore Project
+        <ExternalLink className='w-3.5 h-3.5 text-[#c084fc] group-hover/link:translate-x-1 transition-transform' />
+      </a>
+    </div>
+  </motion.div>
+);
+
 
 const Projects = () => {
-  return (
-    <section id='Projects' className='scroll-mt'>
-      <div className='min-h-screen bg-cover bg-center flex items-center w-full'>
-        <img className='absolute -z-10 opacity-40 w-full h-screen' src="/resource/texture_bg_right.png" alt="" />
-        <div className='grid grid-rows-[1fr_6fr] w-full h-screen mx-30'>
-          <div className='text-white h-30 flex justify-start items-end'>
-            <h2 className='text-5xl font-semibold text-[#EB5E28] mt-10'>Projects</h2>
-          </div>
-          <div className='grid grid-cols-[1fr_1fr_1fr]'>
-            <motion.div
-              initial={{ opacity: 0, x: 200 }}
-              transition={{ duration: 1.5 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className='flex z-1 flex-col mx-5 my-15 hover:scale-105 transition-all bg-black/30 backdrop-blur-sm rounded-2xl border-3 border-[rgb(235,94,40,0.1)]'>
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_right.png" alt="" />
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_left.png" alt="" />
-              <div className='flex justify-center my-10 pt-2 text-[#EB5E28] text-xl font-semibold'>Real Estate App</div>
-              <div>
-                <img className='px-5' src="/resource/Project_1.png" alt="" />
-              </div>
-              <div className='px-5 flex text-justify py-7 text-white text-l font-light leading-6'>
-                Illam a real estate concept app, which helps for selling & Constructing your dream house.
-                built with (React vite + Tailwind CSS)
-              </div>
-              <a className='px-5 flex text-justify py-7 text-white text-l font-light underline' href="https://illam-plum.vercel.app/" target='_blank'><img className='w-5 mr-1' src="/resource/link_chain.svg" alt="" /> Link : Explore illam</a>
-            </motion.div>
-            <motion.div
-              initial={{ scale: 1.2 }}
-              transition={{ duration: 1 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
+  const projects = [
+    {
+      title: "Real Estate App",
+      img: "/resource/Project_1.png",
+      description: "Illam helps users sell and construct their dream homes. Built with React and Tailwind.",
+      link: "https://illam-plum.vercel.app/"
+    },
+    {
+      title: "3D Car Showcase",
+      img: "/resource/Project_2.png",
+      description: "High-performance 3D car showcase made using Three.js with interactive controls.",
+      link: "https://carshowcase3d.netlify.app/"
+    },
+    {
+      title: "Social Video App",
+      img: "/resource/Project_3.png",
+      description: "A social media platform concept focusing on a unique video-centric UX.",
+      link: "https://concept-social-media-video-platform.vercel.app/"
+    }
+  ];
 
-              className='flex z-2 flex-col mx-5 my-15 hover:scale-105 transition-all bg-black/30 backdrop-blur-sm rounded-2xl border-3 border-[rgb(235,94,40,0.1)]'>
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_right.png" alt="" />
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_left.png" alt="" />
-              <div className='flex justify-center my-10 pt-2 text-[#EB5E28] text-xl font-semibold'>3d Car Showcase</div>
-              <div>
-                <img className='px-5' src="/resource/Project_2.png" alt="" />
-              </div>
-              <div className='px-5 flex text-justify py-7 text-white text-l font-light leading-6'>
-                A 3D car showcase made using Three.js, enabling model switching..
-                Developed from scratch using clean HTML/CSS/JS.
-              </div>
-              <a className='px-5 flex text-justify py-7 text-white text-l font-light underline' href="https://carshowcase3d.netlify.app/" target='_blank'><img className='w-5 mr-1' src="/resource/link_chain.svg" alt="" /> Link : Explore Car Showcase</a>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -200 }}
-              transition={{ duration: 1.5 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className='flex z-1 flex-col mx-5 my-15 hover:scale-105 transition-all bg-black/30 backdrop-blur-sm rounded-2xl border-3 border-[rgb(235,94,40,0.1)]'>
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_right.png" alt="" />
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_left.png" alt="" />
-              <div className='flex justify-center my-10 pt-2 text-[#EB5E28] text-xl font-semibold'>Tape 9T'S Concept app</div>
-              <div>
-                <img className='px-5' src="/resource/Project_3.png" alt="" />
-              </div>
-              <div className='px-5 flex text-justify py-7 text-white text-l font-light leading-6'>
-                Social Media platform concept app, designed in Figma developed and
-                built using (React vite + Tailwind CSS)
-              </div>
-              <a className='px-5 flex text-justify py-7 text-white text-l font-light underline' href="https://concept-social-media-video-platform.vercel.app/" target='_blank'><img className='w-5 mr-1' src="/resource/link_chain.svg" alt="" /> Link : Tape 9T'S</a>
-            </motion.div>
-          </div>
-        </div>
+  return (
+    <div className='liquid-glass rounded-[2rem] p-8 sm:p-10 lg:p-12 h-full relative group overflow-hidden'>
+      <div className="glass-glow" />
+      <div className="flex justify-between items-center mb-12">
+        <h2 className='text-3xl lg:text-4xl font-extralight tracking-tight text-[#c084fc]'>Featured Projects</h2>
       </div>
-    </section>
+
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
+        {projects.map((proj, index) => (
+          <ProjectCard key={proj.title} {...proj} delay={index * 0.1} />
+        ))}
+      </div>
+    </div>
   )
 }
 

@@ -1,18 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import "tailwindcss";
 
-* {
-  font-family: "Poppins", sans-serif;
+@theme {
+  --font-tech: "Roboto Mono", monospace;
+  --font-body: "Inter", sans-serif;
 }
 
-.body {
-  background: #1F1F1F;
+* {
+  font-family: var(--font-body);
+  font-weight: 400;
 }
+
+
+
+
+html,
+body {
+  background: #000000;
+  color: white;
+  margin: 0;
+  overflow-x: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; removed for Lenis */
 }
 
 .active-link {
-  color: #c73901;
+  color: #c084fc;
   font-weight: 500;
+}
+
+/* Apple-style Glass Materials */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    0 30px 60px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Background Soft Glow for Tiles */
+.glass-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.08), transparent 70%);
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+
+
+
+/* Background Animations */
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.15;
+  animation: float 20s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

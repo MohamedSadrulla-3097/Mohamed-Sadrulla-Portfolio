@@ -24,7 +24,7 @@
 // import texture_bg_right from './texture_bg_right.png'
 // import X_icon from './X_icon.svg'
 // import branding from './branding.pdf'
-// import cv from './cv.pdf'
+// import cv from './Mohamed_Sadrulla_CV.pdf'
 // import Timeline from './Timeline.svg'
 // import Project_1 from './Project_1.png'
 // import Project_2 from './Project_2.png'

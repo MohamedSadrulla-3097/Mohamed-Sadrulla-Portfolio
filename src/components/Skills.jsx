@@ -1,175 +1,58 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+const SkillItem = ({ name, icon, level, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -10 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.5, delay }}
+    viewport={{ once: true }}
+    className='flex items-center gap-6 group'
+  >
+    <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center p-3.5 bg-white/5 rounded-2xl border border-white/10 group-hover:border-[#c084fc]/40 transition-all duration-300 group-hover:scale-105">
+      <img className='w-full h-full object-contain filter group-hover:brightness-110 transition-all' src={icon} alt={name} />
+    </div>
+    <div className='flex-1'>
+      <div className='flex justify-between text-[11px] sm:text-xs font-tech text-white/40 uppercase tracking-[0.2em] mb-1'>
+        <span className="group-hover:text-white transition-colors">{name}</span>
+        <span className="text-[#c084fc] font-bold">{level}%</span>
+      </div>
+      <div className='h-2 w-full bg-white/5 rounded-full overflow-hidden mt-2'>
+        <motion.div 
+          initial={{ width: 0 }}
+          whileInView={{ width: `${level}%` }}
+          transition={{ duration: 1.2, delay: delay + 0.2 }}
+          viewport={{ once: true }}
+          className='h-full bg-gradient-to-r from-[#c084fc] to-[#5d32dc] rounded-full'
+        />
+      </div>
+    </div>
+  </motion.div>
+);
 
 const Skills = () => {
+  const skills = [
+    { name: "Figma", level: 95, icon: "/resource/figma.svg" },
+    { name: "React", level: 72, icon: "/resource/react.svg" },
+    { name: "Tailwind", level: 80, icon: "/resource/tailwind.svg" },
+    { name: "JavaScript", level: 78, icon: "/resource/javascript.svg" },
+    { name: "Node.js", level: 65, icon: "/resource/nodejs.svg" },
+    { name: "MongoDB", level: 60, icon: "/resource/mongodb.svg" },
+  ];
+
   return (
-    <section id='Skills' className='scroll-mt'>
-      <div className='min-h-screen bg-cover bg-center flex items-center w-full'>
-        <img className='absolute -z-10 opacity-40 w-full h-screen' src="/resource/texture_bg_right.png" alt="bg_image" />
-        <div className='grid grid-rows-[1fr_6fr] w-full h-screen mx-30'>
-          <div className='text-white h-30 flex justify-start items-end'>
-            <h2 className='text-5xl font-semibold text-[#EB5E28] mt-10'>Skills</h2>
-          </div>
-          <div className='grid grid-cols-[1fr_1fr_1fr]'>
-            <motion.div
-              initial={{ opacity: 0, x: -200 }}
-              transition={{ delay: 0.2, duration: 1 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-
-              className='flex flex-col mx-5 my-15 bg-black/30 backdrop-blur-sm rounded-2xl border-3 border-[rgb(235,94,40,0.1)]'>
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_right.png" alt="" />
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_left.png" alt="" />
-              <div className='flex justify-center my-10 pt-2 text-[#EB5E28] text-xl font-semibold'>Front End
-              </div>
-              <div className='grid mx-10 mb-10 text-xs'>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/html.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>HTML</p>
-                      <p>90%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-45 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/css.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>CSS</p>
-                      <p>88%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-44 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/javascript.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>JavaScript</p>
-                      <p>78%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-39 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/react.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>React</p>
-                      <p>72%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-36 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/tailwind.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>Tailwind</p>
-                      <p>80%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-40 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </motion.div>
-            {/* Back end */}
-            <motion.div
-              initial={{ opacity: 0, y: 200 }}
-              transition={{ delay: 0.2, duration: 1 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className='flex flex-col mx-5 my-15 bg-black/30 backdrop-blur-sm rounded-2xl border-3 border-[rgb(235,94,40,0.1)]'>
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_right.png" alt="" />
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_left.png" alt="" />
-              <div className='flex justify-center my-10 pt-2 text-[#EB5E28] text-xl font-semibold'>Back End
-              </div>
-              <div className='grid mx-10 mb-10 text-xs'>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://nodejs.org/en/docs" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/nodejs.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>Nodejs</p>
-                      <p>65%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-32.5 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://www.mongodb.com/docs/" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/mongodb.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>Mongo Db</p>
-                      <p>60%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-30 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-              </div>
-            </motion.div>
-            {/* Tools */}
-            <motion.div
-              initial={{ opacity: 0, x: 200 }}
-              transition={{ delay: 0.2, duration: 1 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-
-              className='flex flex-col mx-5 my-15 bg-black/30 backdrop-blur-sm rounded-2xl border-3 border-[rgb(235,94,40,0.1)]'>
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_right.png" alt="" />
-              <img className='flex absolute -z-10 opacity-50' src="/resource/texture_bg_left.png" alt="" />
-              <div className='flex justify-center my-10 pt-2 text-[#EB5E28] text-xl font-semibold'>Design / Tools
-              </div>
-              <div className='grid mx-10 mb-10 text-xs'>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/git.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>Git</p>
-                      <p>70%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-35 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a className='hover:scale-120 transition flex justify-start items-center' href="https://help.figma.com/hc/en-us" target="_blank" rel="noopener noreferrer"><img className='w-12 py-2 mr-10' src="/resource/figma.svg" alt="" />
-                  <div className='grid grid-cols justify-between items-center gap-2'>
-                    <div className='flex justify-between text-white'>
-                      <p>Figma</p>
-                      <p>95%</p>
-                    </div>
-                    <div className='w-50 h-1 bg-gray-700 rounded-full'>
-                      <div className='w-47.5 h-1 bg-[#EB5E28] text-[#EB5E28] rounded-full'>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
+    <div className='liquid-glass rounded-[2rem] p-8 sm:p-10 lg:p-12 h-full relative group overflow-hidden'>
+      <div className="glass-glow" />
+      <h2 className='text-3xl lg:text-4xl font-extralight tracking-tight text-[#c084fc] mb-10'>Tech Stack</h2>
+      <div className='grid grid-cols-1 gap-6 sm:gap-8'>
+        {skills.map((skill, index) => (
+          <SkillItem key={skill.name} {...skill} delay={index * 0.1} />
+        ))}
       </div>
-    </section>
+      
+      {/* Glow */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[#c084fc]/5 blur-3xl rounded-full" />
+    </div>
   )
 }
 

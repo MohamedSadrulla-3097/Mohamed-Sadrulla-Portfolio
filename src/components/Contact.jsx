@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
-
   const [result, setResult] = React.useState("");
 
   const onSubmit = async (event) => {
@@ -27,60 +26,80 @@ const Contact = () => {
     } else {
       console.log("Error", data);
       toast.error(data.message)
-      setResult();
+      setResult("");
     }
   };
 
   return (
-    <section id='Contact' className='scroll-mt'>
-      <div className='min-h-screen bg-cover bg-center flex items-center w-full mb-10'>
-        <img className='absolute -z-10 opacity-40 w-full h-screen' src="/resource/texture_bg_right.png" alt="" />
-        <div className='grid grid-rows-[1fr_6fr] w-full h-screen mx-30'>
-          <div className='text-white h-30 flex justify-start items-end'>
-            <h2 className='text-5xl font-semibold text-[#EB5E28] mt-10'>Contact</h2>
+    <div className='liquid-glass rounded-[2rem] p-8 sm:p-10 lg:p-12 h-full relative group overflow-hidden'>
+      <div className="glass-glow" />
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className='text-3xl lg:text-4xl font-extralight tracking-tight text-[#c084fc] mb-3'>Get in Touch</h2>
+          <p className='text-white/30 text-sm sm:text-base mb-10 font-light leading-relaxed'>Have a project in mind? Let's build something amazing together.</p>
+
+          <form onSubmit={onSubmit} className="space-y-6 sm:space-y-8">
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8'>
+              <input 
+                className='w-full bg-white/5 border border-white/10 focus:border-[#c084fc]/50 outline-none rounded-2xl px-5 py-4 text-sm text-white transition-all font-light placeholder:text-white/20' 
+                type="text" 
+                name='Name' 
+                placeholder='Name' 
+                required 
+              />
+              <input 
+                className='w-full bg-white/5 border border-white/10 focus:border-[#c084fc]/50 outline-none rounded-2xl px-5 py-4 text-sm text-white transition-all font-light placeholder:text-white/20' 
+                type="email" 
+                name='Email' 
+                placeholder='Email' 
+                required 
+              />
+            </div>
+            <textarea 
+              className='w-full h-40 bg-white/5 border border-white/10 focus:border-[#c084fc]/50 outline-none rounded-2xl px-5 py-4 text-sm text-white transition-all resize-none font-light placeholder:text-white/20'
+              name="Message" 
+              placeholder='Your Message' 
+              required
+            ></textarea>
+            <button 
+              type="submit"
+              className="w-full sm:w-auto px-10 py-4 bg-[#c084fc] text-black font-tech text-[10px] sm:text-xs uppercase tracking-widest rounded-2xl shadow-lg hover:shadow-[#c084fc]/20 hover:scale-[1.02] active:scale-95 transition-all"
+            >
+              {result ? result : "Send Message"}
+            </button>
+          </form>
+        </motion.div>
+
+
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className='hidden lg:flex justify-center items-center overflow-visible'
+        >
+          <div className="relative w-full flex justify-center">
+            <div className="absolute inset-0 bg-[#c084fc]/15 rounded-full blur-[120px] scale-[1.8]" />
+            <img 
+              src="/resource/laptop_glow.png" 
+              alt="Contact" 
+              className="relative z-10 w-full max-w-md xl:max-w-xl drop-shadow-[0_30px_60px_rgba(192,132,252,0.4)] opacity-100 lg:scale-[1.4] transition-transform duration-700"
+              style={{ transform: 'translateZ(0)' }} 
+            />
           </div>
-          <div className='grid grid-cols-2'>
-            <motion.div
-              initial={{ opacity: 0, x: -200 }}
-              transition={{ duration: 1 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className='flex flex-col w-full justify-start items-centre mt-10 pr-35'>
-              <form onSubmit={onSubmit}>
-                <div className='flex flex-col gap-5'>
-                  <div className='w-full text-white'>
-                    Name
-                    <input className='w-full border border-[#eb5e28] rounded-xl px-4 py-4 mt-2' type="text" name='Name' placeholder='Your Name' required />
-                  </div>
-                  <div className='w-full text-white'>
-                    Email
-                    <input className='w-full border border-[#eb5e28] rounded-xl px-4 py-4 mt-2' type="email" name='Email' placeholder='Your Email' required />
-                  </div>
-                </div>
-                <div className='w-full text-white my-5'>
-                  Message
-                  <textarea className='w-full h-50 border border-[#eb5e28] text-white rounded-xl px-4 py-3 mt-2 resize-none'
-                    name="Message" placeholder='Your Message' required></textarea>
-                </div>
-                <button id='#Contact' className=" cursor-pointer w-full px-10 py-5 bg-[#EB5E28] text-white font-normal rounded-full shadow-md hover:scale-105 transition">
-                  {result ? result : "Send Message"}
-                </button>
-              </form>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 1, x: 200 }}
-              transition={{ duration: 1 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className='flex justify-center items-center'>
-              <img src="/resource/contact_image.png" alt="" />
-            </motion.div>
-          </div>
-        </div>
+        </motion.div>
+
+
+
       </div>
-    </section>
+    </div>
   )
 }
 
 export default Contact
-
