@@ -41,11 +41,11 @@ const Experience = () => {
         "Developed precise 2D and 3D technical drawings for thermal system components, ensuring manufacturing accuracy and optimization through CAD modeling.",
     },
     {
-      title: "Quality Check",
+      title: "AutoCAD Designer",
       company: "Wheels India Pvt Ltd",
       period: "2018 - 2019",
       description:
-        "Ensured precision and structural integrity of automobile wheels through rigorous quality inspections. Monitored production standards and maintained zero-defect goals within a high-volume manufacturing environment.",
+        "Created detailed 2D technical drawings and layouts for commercial vehicle wheels in AutoCAD, maintaining dimensional tolerances and supporting manufacturing accuracy",
     },
   ];
 
