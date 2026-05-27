@@ -34,16 +34,18 @@ const Services = () => {
   ];
 
   return (
-    <div className='liquid-glass rounded-[2rem] p-8 sm:p-10 lg:p-12 h-full relative group overflow-hidden'>
+    <div className="liquid-glass rounded-[2rem] p-8 sm:p-10 lg:p-12 h-full relative group overflow-hidden">
       <div className="glass-glow" />
-      <h2 className='text-3xl lg:text-4xl font-extralight tracking-tight text-[#c084fc] mb-12'>My Services</h2>
-      <div className='grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8'>
+      <h2 className="text-3xl lg:text-4xl font-extralight tracking-tight text-[#c084fc] mb-12">
+        My Services
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
         {services.map((service, index) => (
           <ServiceItem key={service.title} {...service} delay={index * 0.05} />
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

@@ -37,7 +37,7 @@ const SkillItem = ({ name, icon, level, delay }) => (
 const Skills = () => {
   const skills = [
     { name: "Figma", level: 95, icon: "/resource/figma.svg" },
-    { name: "Adobe Illustrator", level: 85, icon: "/resource/illustrator.svg" },
+    { name: "Affinity", level: 90, icon: "/resource/affinity.svg" },
     { name: "React", level: 72, icon: "/resource/react.svg" },
     { name: "Tailwind", level: 80, icon: "/resource/tailwind.svg" },
     { name: "JavaScript", level: 78, icon: "/resource/javascript.svg" },

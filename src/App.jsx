@@ -109,7 +109,7 @@ const App = () => {
 
 
       <ToastContainer />
-      
+
       <main className="container mx-auto px-4 sm:px-6 md:px-8 pt-4 sm:pt-8 md:pt-12 pb-12 sm:pb-20 md:pb-24 grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
 
 
@@ -144,7 +144,7 @@ const App = () => {
 
 
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
