@@ -1,6 +1,6 @@
-import React from 'react'
-import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
 
 const InstagramIcon = (props) => (
   <svg
@@ -98,7 +98,7 @@ const Footer = () => {
             />
           </a>
           <p className="text-[#c084fc] font-tech tracking-tighter text-[9px] sm:text-[10px] uppercase opacity-60">
-            Front End Dev / Visual Designer
+            Visual Designer / Front End Dev
           </p>
           <div className="text-white/10 text-[9px] sm:text-[10px] uppercase tracking-[0.4em] font-tech mt-4">
             © Mohamed Sadrulla • 2026

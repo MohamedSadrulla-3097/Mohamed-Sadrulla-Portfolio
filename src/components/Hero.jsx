@@ -48,8 +48,8 @@ const Hero = () => {
           </div>
 
           <div className="text-lg sm:text-xl font-medium tracking-tight text-white/90">
-            Front End Developer <span className="text-white/20 mx-2">/</span>{" "}
-            Visual Designer
+            Visual Designer <span className="text-white/20 mx-2">/</span> Front
+            End Developer
           </div>
 
           <p className="text-sm sm:text-base text-white/50 max-w-sm lg:max-w-md leading-relaxed font-light">
